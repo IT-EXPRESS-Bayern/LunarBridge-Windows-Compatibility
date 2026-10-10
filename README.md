@@ -2,13 +2,13 @@
 
 Dieses eigenständige Modul bereitet ausdrücklich ausgewählte Windows-Programme für einen Wine-Start unter nativem Intel-macOS vor. Es liest EXE-Metadaten, zeigt Architektur und mögliche Laufzeitabhängigkeiten und verwendet einen eigenen Prefix für Installation und Betrieb.
 
-**Aktueller Stand:** PE-Prüfung und Startablauf sind implementiert und mit 47 synthetischen Tests unter Windows geprüft. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind noch offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung; Direct3D-Programme bleiben deshalb zusätzlich unqualifiziert.
+**Aktueller Stand:** PE-Prüfung und Startablauf sind implementiert und mit 49 synthetischen Tests unter Windows geprüft. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind noch offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung; Direct3D-Programme bleiben deshalb zusätzlich unqualifiziert.
 
 ## Funktionen
 
 - PE32/PE32+, x86/x64/ARM, Subsystem, DLL-/Systemkennzeichen und begrenzte Headerprüfung.
 - Normale und verzögerte DLL-Importe; Hinweise auf Visual C++, CLR/.NET und Grafik-APIs.
-- SHA-256 für die gewählte Eingabe; erneute Prüfung vor einem Start.
+- SHA-256 für die gewählten Eingaben; erneute Prüfung vor und nach der Wine-Versionsabfrage, bevor ein Prefix beschrieben oder eine App gestartet wird.
 - Prüfung der ausdrücklich ausgewählten Wine-Datei auf einen Intel-Mach-O-Executable-Header.
 - Eigener Prefix mit Herkunftsmarker; keine automatische Übernahme eines bestehenden fremden Prefix.
 - `inspect` und `plan` lesen ausschließlich. `doctor` prüft auf Intel-macOS die ausgewählte Wine-Datei mit `--version`. `launch` startet ausdrücklich diese Laufzeit mit einer Argumentliste ohne Shell.

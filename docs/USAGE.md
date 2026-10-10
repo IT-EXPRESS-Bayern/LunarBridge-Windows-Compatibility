@@ -47,7 +47,7 @@ python3 tools/windows_compatibility.py launch \
   "/Pfad/Setup.exe"
 ```
 
-Vor dem Start werden Eingabe und Runtime erneut gelesen und mit ihren Plan-Hashes verglichen; danach folgt die Versionsabfrage. Bei einem x86-Image fordert der freie Ausgangspfad Wine 11+. Erst nach diesen Prüfungen wird ein fehlender dedizierter Prefix mit Modulmarker angelegt. Wine selbst initialisiert seine Windows-Umgebung und der ausgewählte EXE-Installer entscheidet über seine Installation.
+Vor dem Start werden Eingabe und Runtime erneut gelesen und mit ihren Plan-Hashes verglichen; danach folgt die Versionsabfrage. Anschließend werden EXE und Wine-Datei nochmals frisch geprüft und ihre Hashes mit dem Plan verglichen. Ändert die Versionsprobe eine der Dateien, endet der Ablauf vor der Prefix-Erstellung und vor einem App-Aufruf. Bei einem x86-Image fordert der freie Ausgangspfad Wine 11+. Erst nach diesen Prüfungen wird ein fehlender dedizierter Prefix mit Modulmarker angelegt. Wine selbst initialisiert seine Windows-Umgebung und der ausgewählte EXE-Installer entscheidet über seine Installation.
 
 Eine anschließend installierte EXE kann ausdrücklich im selben Prefix gestartet werden:
 

@@ -210,6 +210,16 @@ def execute_plan(plan: ExecutionPlan) -> dict:
     if current.pe["sha256"] != plan.pe["sha256"] or current.runtime["sha256"] != plan.runtime["sha256"]:
         raise InspectionError("selected_input_changed")
     runtime = probe_runtime(current.wine)
+    # The version probe is an external process and may change either input.
+    # Take fresh snapshots before writing the prefix or invoking the application.
+    after_probe = make_plan(current.image, current.wine, current.prefix, current.arguments, current.mode)
+    if (after_probe.pe["sha256"] != plan.pe["sha256"]
+            or after_probe.runtime["sha256"] != plan.runtime["sha256"]
+            or runtime["sha256"] != after_probe.runtime["sha256"]):
+        raise InspectionError("selected_input_changed")
+    if after_probe.blockers:
+        raise InspectionError("launch_requirements_unmet")
+    current = after_probe
     if current.pe["requires_wow64"] and runtime["wine_version"][0] < 11:
         raise InspectionError("x86_requires_selected_wine_11_or_newer")
     # Recheck the dedicated prefix after probing and before creating any files.

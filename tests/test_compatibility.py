@@ -350,19 +350,24 @@ class CompatibilityTests(unittest.TestCase):
 
     def test_launch_preserves_metacharacters_as_literal_arguments(self):
         arguments = ("; touch /never", "$(never)", "`never`", "--flag=x y")
+        alias = self.root / "uncreated-alias" / ".."
         with self.intel_mac(), mock.patch.object(compatibility.subprocess, "run",
                                                side_effect=self.fake_wine()) as run:
-            plan = compatibility.make_plan(self.image, self.wine, self.prefix, arguments, "install")
+            plan = compatibility.make_plan(alias / self.image.name, alias / self.wine.name,
+                                           alias / self.prefix.name, arguments, "install")
             result = compatibility.execute_plan(plan)
         self.assertEqual(run.call_count, 2)
         actual, kwargs = run.call_args
-        self.assertEqual(actual[0], [str(self.wine), str(self.image), *arguments])
+        self.assertEqual(plan.wine, self.wine.resolve())
+        self.assertEqual(plan.image, self.image.resolve())
+        self.assertEqual(actual[0], [str(plan.wine), str(plan.image), *arguments])
         self.assertIs(kwargs["shell"], False)
-        self.assertEqual(kwargs["env"]["WINEPREFIX"], str(self.prefix))
+        self.assertEqual(kwargs["env"]["WINEPREFIX"], str(plan.prefix))
+        self.assertEqual(kwargs["cwd"], str(plan.image.parent))
         self.assertEqual(result["return_code"], 0)
         self.assertFalse(result["installation_verified"])
         self.assertFalse(result["runtime"]["wow64_verified"])
-        self.assertEqual(compatibility.prefix_state(self.prefix), "module_prefix")
+        self.assertEqual(compatibility.prefix_state(plan.prefix), "module_prefix")
 
     def test_nonzero_exit_is_reported_without_success_claim(self):
         with self.intel_mac(), mock.patch.object(compatibility.subprocess, "run",
@@ -382,6 +387,30 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(raised.exception.code, "selected_input_changed")
         self.assertFalse(self.prefix.exists())
         run.assert_not_called()
+
+    def assert_changed_during_version_probe_rejected(self, target):
+        def version_changes_input(argv, **kwargs):
+            self.assertEqual(argv, [str(self.wine.resolve()), "--version"])
+            data = bytearray(target.read_bytes())
+            data[-1] ^= 1
+            target.write_bytes(data)
+            kwargs["stdout"].write(b"wine-11.0\n")
+            return SimpleNamespace(returncode=0)
+
+        with self.intel_mac(), mock.patch.object(compatibility.subprocess, "run",
+                                               side_effect=version_changes_input) as run:
+            plan = compatibility.make_plan(self.image, self.wine, self.prefix)
+            with self.assertRaises(pe.InspectionError) as raised:
+                compatibility.execute_plan(plan)
+        self.assertEqual(raised.exception.code, "selected_input_changed")
+        self.assertEqual(run.call_count, 1)
+        self.assertFalse(plan.prefix.exists())
+
+    def test_version_probe_changed_image_rejected_before_prefix_and_app(self):
+        self.assert_changed_during_version_probe_rejected(self.image)
+
+    def test_version_probe_changed_wine_rejected_before_prefix_and_app(self):
+        self.assert_changed_during_version_probe_rejected(self.wine)
 
     def test_x86_older_wine_rejected_without_prefix_mutation(self):
         self.image.write_bytes(make_pe(machine=0x14C))
