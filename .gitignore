@@ -1,0 +1,23 @@
+# Internal working plans stay local.
+TASKS.md
+tasks.md
+PLAN.md
+plan.md
+**/TASKS.md
+**/tasks.md
+**/PLAN.md
+**/plan.md
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+reports/
+prefixes/
+*.exe
+*.dll
+*.msi
+*.sys
+*.dmp
+*.log
+.DS_Store
+

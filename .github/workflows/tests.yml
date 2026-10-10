@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: GPL-3.0-only
+name: Compatibility preparation tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            python: python
+          - os: macos-26-intel
+            python: python3
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        with:
+          persist-credentials: false
+      - name: Test synthetic PE inspection and mocked launch
+        run: ${{ matrix.python }} tools/run_tests.py
+

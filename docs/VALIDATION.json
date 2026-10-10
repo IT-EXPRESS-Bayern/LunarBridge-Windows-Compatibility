@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-10-10T21:58:00.833944+00:00",
+  "errors": 0,
+  "failures": 0,
+  "fixtures": "synthetic_PE_and_MachO",
+  "gpu_acceleration_tested": false,
+  "host_system": "Windows",
+  "native_target_tested": false,
+  "passed": 47,
+  "process_invocations": "mocked",
+  "python_version": "3.12.14",
+  "schema": 1,
+  "skipped": 0,
+  "source_sha256": {
+    ".github/workflows/tests.yml": "2fd0e8ca0e16c980425daccb296ed4b257ebdfd5333e8375415bee118ec074c6",
+    "tests/test_compatibility.py": "35d843d57f8449b062f27faec1534781c0a4d81a2258dd6a54f4e02bd529f862",
+    "tools/pe_inspector.py": "6fbbf2ac0a195ca45e5392ff96e9f831d8a0fd1060c1130b1a8fb5aaa09175b5",
+    "tools/run_tests.py": "0a406f08ed51b3b13606aff3d58e7c85c2de5d8a09d893efd2b7d67d0f14fd6c",
+    "tools/windows_compatibility.py": "38e9048d52bb95ce5be6b356bbcc6a02da7796a4686517e4303dec7d1fc5c58d"
+  },
+  "tests": 47,
+  "windows_application_tested": false,
+  "wine_runtime_tested": false
+}

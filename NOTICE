@@ -1,0 +1,13 @@
+LunarBridge Windows Compatibility
+Copyright (C) 2026 IT-EXPRESS Bayern
+
+The original Python tools, tests and project documentation are licensed under
+GPL-3.0-only. See LICENSE. No Wine, Windows application, Microsoft runtime,
+CodeWeavers CrossOver, Apple toolkit or third-party binary is redistributed.
+
+Wine is an independent external project licensed under LGPL-2.1-or-later,
+with additional notices for bundled components. Our tool invokes an explicitly
+selected executable as a separate process; it does not import Wine source code.
+External runtime and application licenses remain applicable to their own files.
+CrossOver is a commercial comparison, not an included runtime or dependency.
+
