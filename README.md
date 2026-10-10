@@ -46,3 +46,4 @@ Eigener Code: **GPL-3.0-only**, kommerzielle Nutzung erlaubt. Externe Laufzeiten
 
 Projektfamilie: [LunarBridge Hackintosh](https://github.com/IT-EXPRESS-Bayern/LunarBridge-Hackintosh). Dieses Modul ist Userland-Software und enthält keinen Hardware-Kext.
 
+Der erfolgreiche Online-Prüflauf und sein exakter Quellstand sind in [docs/CI_VALIDATION.json](docs/CI_VALIDATION.json) festgehalten. Spätere Dokumentations-Commits sind davon getrennt; dieser CI-Lauf ist kein Gerätefunktionstest auf dem Samsung.

@@ -1,0 +1,16 @@
+{
+  "repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
+  "source_commit": "8d56d321182e99e95c9693b4f26d6ac2b9f81c5c",
+  "workflow_run_id": 38091242946,
+  "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38091242946",
+  "status": "completed",
+  "conclusion": "success",
+  "local_distinct_tests_passed": 49,
+  "native_target_hardware_tests": 0,
+  "verified_on": "2026-10-11",
+  "scope": "Hosted workflow and exact source commit; no Samsung target test.",
+  "later_documentation_commits_are_separate": true,
+  "target_boot_or_secure_boot_verified": false,
+  "actual_gpu_execution_or_metal_implemented": false,
+  "artifact_metadata": []
+}
