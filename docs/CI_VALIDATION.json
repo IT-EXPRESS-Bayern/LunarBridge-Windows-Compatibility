@@ -1,14 +1,31 @@
 {
   "repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
-  "source_commit": "8d56d321182e99e95c9693b4f26d6ac2b9f81c5c",
-  "workflow_run_id": 38091242946,
-  "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38091242946",
+  "source_commit": "3dcc431371543d80b69de3f0deacf979bb3b1ccd",
+  "workflow_run_id": 38110355544,
+  "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38110355544",
   "status": "completed",
   "conclusion": "success",
-  "local_distinct_tests_passed": 49,
+  "local_distinct_tests_passed": 79,
+  "portable_tests_per_host": 79,
+  "jobs": [
+    {
+      "id": 114384439669,
+      "name": "synthetic-tests (windows-latest, python)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114384439819,
+      "name": "synthetic-tests (macos-26-intel, python3)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "wine_runtime_tested_in_this_workflow": false,
+  "separate_runtime_validation": "RUNTIME_VALIDATION.json",
   "native_target_hardware_tests": 0,
   "verified_on": "2026-10-11",
-  "scope": "Hosted workflow and exact source commit; no Samsung target test.",
+  "scope": "Portable tests on Windows and Intel macOS at the exact source commit; no Wine runtime execution or Samsung target test.",
   "later_documentation_commits_are_separate": true,
   "target_boot_or_secure_boot_verified": false,
   "actual_gpu_execution_or_metal_implemented": false,

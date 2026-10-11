@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "verified_at_utc": "2026-10-11T05:05:16.128747+00:00",
+  "repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
+  "source_commit": "3dcc431371543d80b69de3f0deacf979bb3b1ccd",
+  "workflow_run_id": 38110355646,
+  "workflow_job_id": 114384440039,
+  "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38110355646",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success",
+  "host": {
+    "system": "Darwin",
+    "architecture": "x86_64",
+    "macos": "26.6.1",
+    "python": "3.12.10",
+    "sdk": "26.5",
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+  },
+  "runtime_build_started_at_utc": "2026-10-11T04:03:30.574914+00:00",
+  "runtime_build_finished_at_utc": "2026-10-11T04:57:36.227968+00:00",
+  "duration_seconds": 3245.644,
+  "wine_make_duration_seconds": 2433.422,
+  "build_parallel_jobs": 4,
+  "wine_version": "11.0",
+  "wine_runtime_tested": true,
+  "own_windows_pe_programs_tested": 2,
+  "prefix_architecture": "win64",
+  "wow64_verified_on_ci": true,
+  "payloads": [
+    {
+      "architecture": "x86_64",
+      "file_token_verified": true,
+      "gpu_tested": false,
+      "launcher_used": true,
+      "real_windows_pe_executed": true,
+      "return_code": 0,
+      "sha256": "2d7b861d8903a9de3a07ee599a6f9fcbbec95f94e7ddf9e633758c5c724e5743",
+      "stdout_token_verified": true,
+      "wow64_verified_on_ci": false,
+      "bytes": 3584,
+      "imports": [
+        "kernel32.dll"
+      ],
+      "result_file_token_independently_read": true,
+      "stdout_token_and_launcher_report_independently_read": true,
+      "executed_on_windows": false
+    },
+    {
+      "architecture": "x86",
+      "file_token_verified": true,
+      "gpu_tested": false,
+      "launcher_used": true,
+      "real_windows_pe_executed": true,
+      "return_code": 0,
+      "sha256": "1ac6564e375fc3effd025c0dd7a1ad5da73b14dd0dc8c3ee415f6505c051699a",
+      "stdout_token_verified": true,
+      "wow64_verified_on_ci": true,
+      "bytes": 3584,
+      "imports": [
+        "kernel32.dll"
+      ],
+      "result_file_token_independently_read": true,
+      "stdout_token_and_launcher_report_independently_read": true,
+      "executed_on_windows": false
+    }
+  ],
+  "runtime_macho_loader_sha256": "c447cfc317c9dfdd7319091d70e04b6d0b708baa1a4224f781f2ed3372178ca0",
+  "source_sha256": {
+    ".github/workflows/wine-runtime.yml": "7cab282c7dc431398b73bbdc6b27fa7ba4a623281bb76a115917d6f23698c86e",
+    "ci/payload/runtime_smoke.c": "9f022c8f35367228417716bf9722e882b9ae46d635e032caac2ba48f87b89575",
+    "ci/runtime-pins.json": "844f65e20954f28a94f5b4b7763f6417106faaf12246e8b232e82ab3bddb92a5",
+    "tools/pe_inspector.py": "6fbbf2ac0a195ca45e5392ff96e9f831d8a0fd1060c1130b1a8fb5aaa09175b5",
+    "tools/windows_compatibility.py": "edeef7b2bcc24dcf6dfc460775c004fff88fbbb1bbd201f981c57fd37b67c7a9",
+    "tools/wine_runtime_ci.py": "b3e836a7c051634a35ce3ac0768fcff3ed4e87404adf321a71c210c78ef16fa2"
+  },
+  "source_hashes_match_current_checkout": false,
+  "source_hashes_verified_against_exact_build_commit": true,
+  "later_upload_option_change_is_separate_from_runtime_build": true,
+  "upstream_downloads_verified_on_ci": {
+    "bison": {
+      "bytes": 2817324,
+      "sha256": "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2",
+      "verified": true
+    },
+    "llvm_mingw": {
+      "bytes": 124244100,
+      "sha256": "d1dc5d1ecf3a3ced5ed5544c72f1acd0c8e84eb3024d520ecc6b143eec62a149",
+      "verified": true
+    },
+    "wine": {
+      "bytes": 33172240,
+      "sha256": "c07a6857933c1fc60dff5448d79f39c92481c1e9db5aa628db9d0358446e0701",
+      "verified": true
+    }
+  },
+  "full_upstream_source_archive_members_present": true,
+  "retained_license_files": {
+    "bison": 1,
+    "llvm_mingw": 23,
+    "wine": 19
+  },
+  "build_report": {
+    "bytes": 15424,
+    "sha256": "9598cd6ecd54f623c9fa5a73b7f85a4d21a0e2859df137d27fee24b6f567ded9",
+    "sha256_independently_computed": true
+  },
+  "independently_read_members": {
+    "BUILD_REPORT.json": {
+      "bytes": 15424,
+      "sha256": "9598cd6ecd54f623c9fa5a73b7f85a4d21a0e2859df137d27fee24b6f567ded9"
+    },
+    "REDISTRIBUTION.txt": {
+      "bytes": 537,
+      "sha256": "6e42af3e8c3f28009a9d7dc68bec06baeec74c2141de059305d90947e74e3ef5"
+    },
+    "logs/wine-version.log": {
+      "bytes": 10,
+      "sha256": "3762c03f86a678b5b98778b7950b9a5ddda72105eae3b49a437e970bd1bee114"
+    },
+    "logs/wine-configure.log": {
+      "bytes": 16146,
+      "sha256": "03273602942a8ba865b0cd7efe9da42634d310dbe2b35312f148b5ee02ab8f42"
+    },
+    "logs/prefix-stop.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/payload-64-run.log": {
+      "bytes": 1389,
+      "sha256": "c57ea2ce5575ee4efb289a42b33018120f96bf2b9f46e3d42f6554d1d7a463d6"
+    },
+    "logs/payload-32-run.log": {
+      "bytes": 1383,
+      "sha256": "8249ce5ea1000a0d049bc40d0dea3bc7061fb13d926270f8ccc9f53c767e599d"
+    },
+    "own-payloads/lunarbridge-win64.exe": {
+      "bytes": 3584,
+      "sha256": "2d7b861d8903a9de3a07ee599a6f9fcbbec95f94e7ddf9e633758c5c724e5743"
+    },
+    "own-payloads/lunarbridge-win32.exe": {
+      "bytes": 3584,
+      "sha256": "1ac6564e375fc3effd025c0dd7a1ad5da73b14dd0dc8c3ee415f6505c051699a"
+    },
+    "own-payloads/lunarbridge-win64.result": {
+      "bytes": 29,
+      "sha256": "39ecb9d178b5860b4e3ea1c81219a450e27a072d694437aef5b4f37f9c728335"
+    },
+    "own-payloads/lunarbridge-win32.result": {
+      "bytes": 29,
+      "sha256": "a8942ab86036e07c2b1ffdafaa7b41a7d8c4c411492ca279b48cca3d0002a084"
+    }
+  },
+  "artifact": {
+    "id": 11691749613,
+    "name": "wine-11-intel-runtime-proof",
+    "url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38110355646/artifacts/11691749613",
+    "bytes": 90189404,
+    "github_reported_digest": "sha256:4d64ac424e15578b1c3f0c61b9dceffa5441e7d804691e0462b83673f75358c6",
+    "digest_matches_github_upload_log": true,
+    "full_zip_sha256_independently_computed": false,
+    "retention_days": 7
+  },
+  "runtime_package": {
+    "bytes": 53592428,
+    "complete_application_runtime": false,
+    "configured_for_ci_prefix": true,
+    "file": "wine-11.0-intel-diagnostic.tar.xz",
+    "relocation_verified": false,
+    "sha256": "0271fbeca2bc839bd681946a773df3190f7da5e3cf5db81afea44fc3bc2f463a",
+    "sha256_origin": "computed on CI host; archive not independently rehashed here"
+  },
+  "prefix_cleanup": {
+    "historical_report_completed": false,
+    "kill_return_code": 1,
+    "kill_output_bytes": 0,
+    "final_wait_performed": false,
+    "status": "not_confirmed"
+  },
+  "scope": "Two own Kernel32 console programs through the public launcher on a separate Intel macOS CI host.",
+  "native_samsung_target_tested": false,
+  "graphics_acceleration_tested": false,
+  "user_windows_application_tested": false,
+  "installer_function_tested": false,
+  "runtime_relocation_verified": false,
+  "full_application_runtime": false,
+  "windows_host_executed_wine_or_pe": false,
+  "boot_or_secure_boot_changed": false,
+  "policy_changes": false,
+  "later_documentation_commits_are_separate": true
+}

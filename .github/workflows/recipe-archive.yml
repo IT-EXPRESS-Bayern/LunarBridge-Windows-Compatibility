@@ -1,0 +1,79 @@
+# SPDX-License-Identifier: GPL-3.0-only
+name: Wine runtime recipe archive
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/wine-runtime.yml'
+      - '.github/workflows/recipe-archive.yml'
+      - 'ci/**'
+      - 'tools/wine_runtime_ci.py'
+      - 'tools/windows_compatibility.py'
+      - 'tools/pe_inspector.py'
+      - LICENSE
+      - NOTICE
+  pull_request:
+    paths:
+      - '.github/workflows/wine-runtime.yml'
+      - '.github/workflows/recipe-archive.yml'
+      - 'ci/**'
+      - 'tools/wine_runtime_ci.py'
+      - 'tools/windows_compatibility.py'
+      - 'tools/pe_inspector.py'
+      - LICENSE
+      - NOTICE
+
+permissions:
+  contents: read
+
+jobs:
+  corresponding-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        with:
+          persist-credentials: false
+      - name: Prepare explicit corresponding recipe and notices
+        shell: bash
+        run: |
+          python3 -B - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import shutil
+          names = ('ci/runtime-pins.json', 'ci/payload/runtime_smoke.c',
+                   'tools/wine_runtime_ci.py', 'tools/pe_inspector.py',
+                   'tools/windows_compatibility.py', '.github/workflows/wine-runtime.yml',
+                   'LICENSE', 'NOTICE')
+          root = Path('build/recipe-archive')
+          hashes = {}
+          for name in names:
+              selected = Path(name)
+              assert selected.is_file() and not selected.is_symlink()
+              assert selected.stat().st_size <= 256 * 1024
+              destination = root / 'recipe' / name
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(selected, destination)
+              digest = hashlib.sha256(selected.read_bytes()).hexdigest()
+              assert hashlib.sha256(destination.read_bytes()).hexdigest() == digest
+              hashes[name] = digest
+          reference = {'schema': 1, 'source_commit': os.environ['GITHUB_SHA'],
+                       'source_files_sha256': hashes, 'recipe_source_files': 6,
+                       'notice_files': 2, 'runtime_built_in_this_workflow': False,
+                       'windows_pe_executed_in_this_workflow': False,
+                       'native_target_tested': False}
+          (root / 'SOURCE-REFERENCE.json').write_text(json.dumps(reference, indent=2) + '\n')
+          print('Six runtime recipe sources and two notices prepared; no Wine build or execution.')
+          PY
+      - name: Upload complete allowlisted recipe including workflow source
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: wine-runtime-recipe
+          path: build/recipe-archive/
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 14

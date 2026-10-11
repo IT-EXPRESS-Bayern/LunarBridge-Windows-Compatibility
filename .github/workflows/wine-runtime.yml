@@ -9,14 +9,12 @@ on:
       - 'tools/wine_runtime_ci.py'
       - 'tools/windows_compatibility.py'
       - 'tools/pe_inspector.py'
-      - '.github/workflows/wine-runtime.yml'
   pull_request:
     paths:
       - 'ci/**'
       - 'tools/wine_runtime_ci.py'
       - 'tools/windows_compatibility.py'
       - 'tools/pe_inspector.py'
-      - '.github/workflows/wine-runtime.yml'
 
 permissions:
   contents: read
@@ -46,4 +44,5 @@ jobs:
           name: wine-11-intel-runtime-proof
           path: build/wine-runtime/out/
           if-no-files-found: warn
+          include-hidden-files: true
           retention-days: 7
