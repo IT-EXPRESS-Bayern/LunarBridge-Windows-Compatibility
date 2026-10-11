@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "wine": {
+    "version": "11.0",
+    "url": "https://dl.winehq.org/wine/source/11.0/wine-11.0.tar.xz",
+    "sha256": "c07a6857933c1fc60dff5448d79f39c92481c1e9db5aa628db9d0358446e0701",
+    "sha512": "a2c3db14f8cf0d19927466805c8f17c68ee7e93d1196d1162dd2279af497c21ec611a63f7a9de59953bbdfdb44c87d7bf55373c6533224a5d54e434c29428d1b",
+    "bytes": 33172240,
+    "archive_root": "wine-11.0",
+    "source_commit": "db11d0fe6a169c457e23d007e20404643d067aa8",
+    "source_url": "https://github.com/wine-mirror/wine/tree/db11d0fe6a169c457e23d007e20404643d067aa8",
+    "license": "LGPL-2.1-or-later"
+  },
+  "bison": {
+    "version": "3.8.2",
+    "url": "https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.xz",
+    "sha256": "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2",
+    "bytes": 2817324,
+    "archive_root": "bison-3.8.2",
+    "source_url": "https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.xz",
+    "license": "GPL-3.0-or-later; generated skeletons have upstream exceptions"
+  },
+  "llvm_mingw": {
+    "version": "20260908",
+    "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20260908/llvm-mingw-20260908-ucrt-macos-universal.tar.xz",
+    "sha256": "d1dc5d1ecf3a3ced5ed5544c72f1acd0c8e84eb3024d520ecc6b143eec62a149",
+    "bytes": 124244100,
+    "archive_root": "llvm-mingw-20260908-ucrt-macos-universal",
+    "source_commit": "030097eeee87fcfd0f3bfe536b21cbd6e5d3b324",
+    "source_url": "https://github.com/mstorsjo/llvm-mingw/tree/030097eeee87fcfd0f3bfe536b21cbd6e5d3b324",
+    "llvm_version": "llvmorg-23.1.1",
+    "mingw_w64_commit": "9f55f4a2d3b9783dab76d9808be3d6279b99ec2a",
+    "license": "ISC build recipes; LLVM Apache-2.0 WITH LLVM-exception; retained upstream MinGW notices"
+  }
+}

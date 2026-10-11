@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: GPL-3.0-only
+name: Real Wine 11 runtime on Intel macOS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'ci/**'
+      - 'tools/wine_runtime_ci.py'
+      - 'tools/windows_compatibility.py'
+      - 'tools/pe_inspector.py'
+      - '.github/workflows/wine-runtime.yml'
+  pull_request:
+    paths:
+      - 'ci/**'
+      - 'tools/wine_runtime_ci.py'
+      - 'tools/windows_compatibility.py'
+      - 'tools/pe_inspector.py'
+      - '.github/workflows/wine-runtime.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  wine-source-and-own-pe:
+    runs-on: macos-26-intel
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+        with:
+          persist-credentials: false
+      - name: Select Python 3.12.14
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548
+        with:
+          python-version: '3.12.14'
+      - name: Show pinned source build plan
+        run: python tools/wine_runtime_ci.py --plan
+      - name: Build Wine and execute own x64 and WoW64 payloads
+        run: python tools/wine_runtime_ci.py --build-and-test --build-root build/wine-runtime --jobs 4
+      - name: Retain runtime, complete Wine source, licenses and actual results
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: wine-11-intel-runtime-proof
+          path: build/wine-runtime/out/
+          if-no-files-found: warn
+          retention-days: 7

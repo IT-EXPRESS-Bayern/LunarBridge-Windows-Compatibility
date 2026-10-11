@@ -1,13 +1,24 @@
 LunarBridge Windows Compatibility
 Copyright (C) 2026 IT-EXPRESS Bayern
 
-The original Python tools, tests and project documentation are licensed under
-GPL-3.0-only. See LICENSE. No Wine, Windows application, Microsoft runtime,
-CodeWeavers CrossOver, Apple toolkit or third-party binary is redistributed.
+The original Python tools, tests, own C console payload and project documentation
+are licensed under GPL-3.0-only. See LICENSE. This source repository includes no
+Wine, Windows application, Microsoft runtime, CrossOver or Apple toolkit binary.
 
 Wine is an independent external project licensed under LGPL-2.1-or-later,
 with additional notices for bundled components. Our tool invokes an explicitly
 selected executable as a separate process; it does not import Wine source code.
 External runtime and application licenses remain applicable to their own files.
 CrossOver is a commercial comparison, not an included runtime or dependency.
+
+The separate, explicit Intel-macOS CI recipe builds unmodified Wine 11.0 and
+packages that diagnostic runtime with its complete upstream source archive,
+retained upstream licenses and build evidence. Those files retain their own
+licenses; our GPL license does not relicense Wine. LLVM-MinGW is obtained from
+the maintainer's hash-pinned release and used only as a compiler. Its binary is
+not included in the retained runtime proof. LLVM is Apache-2.0 WITH LLVM-exception;
+the LLVM-MinGW recipes/wrappers are ISC, and MinGW components retain their notices.
+GNU Bison is built from pinned source, GPL-3.0-or-later with upstream skeleton
+exceptions. Its complete source archive and notices accompany the CI proof;
+Bison itself is not installed on the user's system or bundled as an app runtime.
 

@@ -1,24 +1,29 @@
 {
-  "checked_at_utc": "2026-10-10T22:21:59.038475+00:00",
+  "checked_at_utc": "2026-10-11T03:48:44.763411+00:00",
   "errors": 0,
   "failures": 0,
-  "fixtures": "synthetic_PE_and_MachO",
+  "fixtures": "synthetic_PE_and_MachO_and_own_runtime_recipe",
   "gpu_acceleration_tested": false,
   "host_system": "Windows",
   "native_target_tested": false,
-  "passed": 49,
+  "passed": 78,
   "process_invocations": "mocked",
   "python_version": "3.12.14",
   "schema": 1,
   "skipped": 0,
   "source_sha256": {
     ".github/workflows/tests.yml": "2fd0e8ca0e16c980425daccb296ed4b257ebdfd5333e8375415bee118ec074c6",
+    ".github/workflows/wine-runtime.yml": "dae6b9486458d248ecf4f4b634f038f377da9718bc62cafc94da079f5af6a528",
+    "ci/payload/runtime_smoke.c": "9f022c8f35367228417716bf9722e882b9ae46d635e032caac2ba48f87b89575",
+    "ci/runtime-pins.json": "844f65e20954f28a94f5b4b7763f6417106faaf12246e8b232e82ab3bddb92a5",
     "tests/test_compatibility.py": "021f31046eba8b65566bf515c6f4a1298581c533af6483f594a527b875b1f483",
+    "tests/test_runtime_ci.py": "c458395ff431ec62af5928c0fe28c4570b0b75124ccacdae6096dd20d26399bf",
     "tools/pe_inspector.py": "6fbbf2ac0a195ca45e5392ff96e9f831d8a0fd1060c1130b1a8fb5aaa09175b5",
-    "tools/run_tests.py": "0a406f08ed51b3b13606aff3d58e7c85c2de5d8a09d893efd2b7d67d0f14fd6c",
-    "tools/windows_compatibility.py": "edeef7b2bcc24dcf6dfc460775c004fff88fbbb1bbd201f981c57fd37b67c7a9"
+    "tools/run_tests.py": "44b840c44598b679a154556fa5be4ffd393616f3b7935485ffc8351453f34bbe",
+    "tools/windows_compatibility.py": "edeef7b2bcc24dcf6dfc460775c004fff88fbbb1bbd201f981c57fd37b67c7a9",
+    "tools/wine_runtime_ci.py": "b3e836a7c051634a35ce3ac0768fcff3ed4e87404adf321a71c210c78ef16fa2"
   },
-  "tests": 49,
+  "tests": 78,
   "windows_application_tested": false,
   "wine_runtime_tested": false
 }

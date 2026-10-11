@@ -2,7 +2,7 @@
 
 Dieses eigenständige Modul bereitet ausdrücklich ausgewählte Windows-Programme für einen Wine-Start unter nativem Intel-macOS vor. Es liest EXE-Metadaten, zeigt Architektur und mögliche Laufzeitabhängigkeiten und verwendet einen eigenen Prefix für Installation und Betrieb.
 
-**Aktueller Stand:** PE-Prüfung und Startablauf sind implementiert und mit 49 synthetischen Tests unter Windows geprüft. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind noch offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung; Direct3D-Programme bleiben deshalb zusätzlich unqualifiziert.
+**Aktueller Stand:** PE-Prüfung, Startablauf und Vorbereitung eines echten Wine-Quellbuilds sind implementiert und mit 78 portablen Tests unter Windows geprüft. Der eigene x64-/x86-Testprogrammcode lässt sich unter Windows in PE-Dateien übersetzen; diese wurden hier ausschließlich gelesen. Der neue Intel-macOS-26-Workflow muss Wine 11.0 bauen und beide Programme tatsächlich ausführen. Für diese neue Laufzeitprüfung steht das Online-Ergebnis noch aus. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind weiterhin offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung.
 
 ## Funktionen
 
@@ -13,6 +13,7 @@ Dieses eigenständige Modul bereitet ausdrücklich ausgewählte Windows-Programm
 - Eigener Prefix mit Herkunftsmarker; keine automatische Übernahme eines bestehenden fremden Prefix.
 - `inspect` und `plan` lesen ausschließlich. `doctor` prüft auf Intel-macOS die ausgewählte Wine-Datei mit `--version`. `launch` startet ausdrücklich diese Laufzeit mit einer Argumentliste ohne Shell.
 - JSON-Berichte enthalten weder absolute Eingabepfade noch App-Argumente. Wine-/App-Ausgaben werden nicht in Berichte aufgenommen.
+- Separater, ausdrücklich gestarteter Wine-11-Quellbuild auf Intel-macOS-CI: feste Quellen-/Compilerhashes, eigene x64-/x86-Konsole, Ergebnisprüfung, erhaltene Fremdlizenzen und vollständiges Wine-Quellarchiv.
 
 ## Benutzung
 
@@ -41,6 +42,8 @@ python tools/run_tests.py
 ```
 
 Die CI prüft dieselben synthetischen Fixtures auf Windows und Intel-macOS. Sie installiert Wine nicht und führt keine Windows-Datei aus. [VALIDATION.md](docs/VALIDATION.md) unterscheidet diese Tests vom noch offenen echten Gerätetest; [COMPATIBILITY.md](docs/COMPATIBILITY.md) enthält die Primärquellen und den Grafikpfad.
+
+Der zusätzliche Workflow `Real Wine 11 runtime on Intel macOS` baut einen begrenzten Diagnosebuild und führt ausschließlich die eigenen Programme aus. Er prüft Konsolenausgabe, Dateischreibzugriff und neuen WoW64-Loader im 64-Bit-Prefix. Quellen, genaue Abhängigkeiten, geschätzte Buildzeit und der explizite Ablauf stehen in [RUNTIME_BUILD.md](docs/RUNTIME_BUILD.md). Ein bestandener Lauf auf dem CI-Mac wäre kein Samsung-Hardwaretest und keine Freigabe beliebiger EXE-Dateien.
 
 Eigener Code: **GPL-3.0-only**, kommerzielle Nutzung erlaubt. Externe Laufzeiten und Anwendungen behalten ihre eigenen Lizenzen. Siehe [NOTICE](NOTICE) und [LICENSE](LICENSE).
 
