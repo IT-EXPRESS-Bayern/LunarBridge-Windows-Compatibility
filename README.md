@@ -2,7 +2,7 @@
 
 Dieses eigenständige Modul bereitet ausdrücklich ausgewählte Windows-Programme für einen Wine-Start unter nativem Intel-macOS vor. Es liest EXE-Metadaten, zeigt Architektur und mögliche Laufzeitabhängigkeiten und verwendet einen eigenen Prefix für Installation und Betrieb.
 
-**Aktueller Stand:** PE-Prüfung, Startablauf und Vorbereitung eines echten Wine-Quellbuilds sind implementiert und mit 78 portablen Tests unter Windows geprüft. Der eigene x64-/x86-Testprogrammcode lässt sich unter Windows in PE-Dateien übersetzen; diese wurden hier ausschließlich gelesen. Der neue Intel-macOS-26-Workflow muss Wine 11.0 bauen und beide Programme tatsächlich ausführen. Für diese neue Laufzeitprüfung steht das Online-Ergebnis noch aus. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind weiterhin offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung.
+**Aktueller Stand:** PE-Prüfung, Startablauf und Vorbereitung eines echten Wine-Quellbuilds sind implementiert und mit 79 portablen Tests unter Windows geprüft. Der eigene x64-/x86-Testprogrammcode lässt sich unter Windows in PE-Dateien übersetzen; diese wurden hier ausschließlich gelesen. Der neue Intel-macOS-26-Workflow muss Wine 11.0 bauen und beide Programme tatsächlich ausführen. Für diese neue Laufzeitprüfung steht das Online-Ergebnis noch aus. Ein echter Wine-Start auf dem Samsung Galaxy Book5 Pro16 und die Funktion einer Nutzeranwendung sind weiterhin offen. Die separate LunarBridge-Grafikentwicklung hat bislang keine bestätigte macOS-GPU-Beschleunigung.
 
 ## Funktionen
 

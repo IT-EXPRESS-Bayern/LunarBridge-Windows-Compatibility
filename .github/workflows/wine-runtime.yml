@@ -30,10 +30,11 @@ jobs:
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
         with:
           persist-credentials: false
-      - name: Select Python 3.12.14
+      - name: Select Python 3.12.10 for macOS x64
         uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548
         with:
-          python-version: '3.12.14'
+          python-version: '3.12.10'
+          architecture: x64
       - name: Show pinned source build plan
         run: python tools/wine_runtime_ci.py --plan
       - name: Build Wine and execute own x64 and WoW64 payloads

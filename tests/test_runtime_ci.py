@@ -146,6 +146,19 @@ class RuntimeRecipeTests(unittest.TestCase):
                 mock.patch.object(runtime.platform, "machine", return_value="arm64"):
             self.error("requires_native_intel_macos", runtime.require_native_host)
 
+    def test_python_below_3_12_cannot_start_build_or_create_files(self):
+        target = self.root / "unsupported-python-build"
+        with mock.patch.object(runtime.platform, "system", return_value="Darwin"), \
+                mock.patch.object(runtime.platform, "machine", return_value="x86_64"), \
+                mock.patch.object(runtime.sys, "version_info", (3, 11, 9)), \
+                mock.patch.object(runtime, "urlopen") as download, \
+                mock.patch.object(runtime.subprocess, "Popen") as process:
+            self.error("runtime_build_requires_python_3_12", runtime.build_and_test,
+                       target, self.pins, 4)
+        self.assertFalse(target.exists())
+        download.assert_not_called()
+        process.assert_not_called()
+
     def test_build_root_rejects_nonempty_directory(self):
         (self.root / "existing-data").write_text("retain", encoding="utf-8")
         self.error("build_root_must_be_fresh", runtime.fresh_build_root, self.root)
