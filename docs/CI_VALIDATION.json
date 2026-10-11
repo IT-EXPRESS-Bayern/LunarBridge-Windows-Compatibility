@@ -29,5 +29,29 @@
   "later_documentation_commits_are_separate": true,
   "target_boot_or_secure_boot_verified": false,
   "actual_gpu_execution_or_metal_implemented": false,
-  "artifact_metadata": []
+  "artifact_metadata": [],
+  "later_portable_workflow_after_upload_fix": {
+    "source_commit": "943833ef66ebdf1244c2869f11d2cb60ae708987",
+    "workflow_run_id": 38115060422,
+    "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38115060422",
+    "conclusion": "success",
+    "tests_per_host": 79,
+    "jobs": [
+      {
+        "id": 114398200227,
+        "host": "Windows",
+        "conclusion": "success",
+        "tests": 79
+      },
+      {
+        "id": 114398200303,
+        "host": "Intel macOS",
+        "conclusion": "success",
+        "tests": 79
+      }
+    ],
+    "actual_job_logs_read": true,
+    "distinct_cases_already_counted": true,
+    "wine_or_user_apps_executed": false
+  }
 }

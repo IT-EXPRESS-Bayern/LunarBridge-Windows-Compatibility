@@ -1,0 +1,14 @@
+{
+  "workflow_run_id": 38115060446,
+  "workflow_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/actions/runs/38115060446",
+  "source_commit": "943833ef66ebdf1244c2869f11d2cb60ae708987",
+  "conclusion": "success",
+  "artifact_id": 11692678397,
+  "artifact_bytes": 33604,
+  "artifact_sha256": "a37f9bc7f4b1a7dbfb362708f02c38627b6f37303ba1175b184808821e46f206",
+  "actual_hidden_workflow_retained": true,
+  "all_8_source_and_notice_files_byte_equal_to_git_commit": true,
+  "zip_sha256_and_crc_independently_verified": true,
+  "new_wine_build_or_execution": false,
+  "native_samsung_target_tested": false
+}

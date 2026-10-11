@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "result": "verified_supplemented_output",
+  "issues": [
+    {
+      "code": "original_workflow_recipe_missing",
+      "member": "recipe/.github/workflows/wine-runtime.yml",
+      "supplementation_explicitly_authorized": true
+    }
+  ],
+  "verified_at_utc": "2026-10-11T05:36:28.114765+00:00",
+  "repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
+  "source_commit": "3dcc431371543d80b69de3f0deacf979bb3b1ccd",
+  "workflow_run_id": 38110355646,
+  "workflow_job_id": 114384440039,
+  "input_complete_sha256_independently_computed": true,
+  "input_package": {
+    "bytes": 90189404,
+    "sha256": "4d64ac424e15578b1c3f0c61b9dceffa5441e7d804691e0462b83673f75358c6",
+    "sha512": "3c0849bdebc0c64c8e194d493daf7b6149237294beb314a95f67187084f3e9d2a965a6633c959442aa94d71c6574a3b915c8046563fadc31ef03da45f8f1d456"
+  },
+  "zip_crc_verified_members": 109,
+  "zip_expanded_bytes": 100339991,
+  "zip_names_and_budgets_verified": true,
+  "build_report_sha256": "9598cd6ecd54f623c9fa5a73b7f85a4d21a0e2859df137d27fee24b6f567ded9",
+  "build_report_digest_independently_verified": true,
+  "recipe_files_in_original": {
+    "ci/runtime-pins.json": {
+      "present": true,
+      "pinned_git_sha256": "844f65e20954f28a94f5b4b7763f6417106faaf12246e8b232e82ab3bddb92a5",
+      "byte_equal_to_git": true
+    },
+    "ci/payload/runtime_smoke.c": {
+      "present": true,
+      "pinned_git_sha256": "9f022c8f35367228417716bf9722e882b9ae46d635e032caac2ba48f87b89575",
+      "byte_equal_to_git": true
+    },
+    "tools/wine_runtime_ci.py": {
+      "present": true,
+      "pinned_git_sha256": "b3e836a7c051634a35ce3ac0768fcff3ed4e87404adf321a71c210c78ef16fa2",
+      "byte_equal_to_git": true
+    },
+    "tools/pe_inspector.py": {
+      "present": true,
+      "pinned_git_sha256": "6fbbf2ac0a195ca45e5392ff96e9f831d8a0fd1060c1130b1a8fb5aaa09175b5",
+      "byte_equal_to_git": true
+    },
+    "tools/windows_compatibility.py": {
+      "present": true,
+      "pinned_git_sha256": "edeef7b2bcc24dcf6dfc460775c004fff88fbbb1bbd201f981c57fd37b67c7a9",
+      "byte_equal_to_git": true
+    },
+    ".github/workflows/wine-runtime.yml": {
+      "present": false,
+      "pinned_git_sha256": "7cab282c7dc431398b73bbdc6b27fa7ba4a623281bb76a115917d6f23698c86e",
+      "byte_equal_to_git": false
+    },
+    "LICENSE": {
+      "present": true,
+      "pinned_git_sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+      "byte_equal_to_git": true
+    },
+    "NOTICE": {
+      "present": true,
+      "pinned_git_sha256": "a8adb90e894a93982bc465cc9de5c27ef78cdcd5eaff85d4f183a7f4823fa325",
+      "byte_equal_to_git": true
+    }
+  },
+  "original_recipe_source_files_present": 5,
+  "all_six_recipe_files_present_in_original": false,
+  "all_six_recipe_sources_match_pinned_git_and_original_build_report": true,
+  "required_source_supplement": {
+    "schema": 1,
+    "purpose": "Explicit source supplement for the hidden workflow recipe omitted by the original CI upload.",
+    "original_ci_zip_sha256": "4d64ac424e15578b1c3f0c61b9dceffa5441e7d804691e0462b83673f75358c6",
+    "original_ci_zip_bytes": 90189404,
+    "source_repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
+    "source_commit": "3dcc431371543d80b69de3f0deacf979bb3b1ccd",
+    "source_path": ".github/workflows/wine-runtime.yml",
+    "source_git_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/blob/3dcc431371543d80b69de3f0deacf979bb3b1ccd/.github/workflows/wine-runtime.yml",
+    "package_member_added": "recipe/.github/workflows/wine-runtime.yml",
+    "source_content_sha256": "7cab282c7dc431398b73bbdc6b27fa7ba4a623281bb76a115917d6f23698c86e",
+    "source_content_sha256_matches_original_build_report": true,
+    "original_zip_did_not_contain_this_recipe_member": true,
+    "original_member_uncompressed_bytes_preserved": true,
+    "zip_container_repacked": true,
+    "original_ci_zip_unchanged": true,
+    "new_ci_build_or_runtime_test_claimed": false
+  },
+  "upstream_sources": {
+    "wine": {
+      "archive": "sources/wine-11.0.tar.xz",
+      "bytes": 33172240,
+      "sha256": "c07a6857933c1fc60dff5448d79f39c92481c1e9db5aa628db9d0358446e0701",
+      "sha512": "a2c3db14f8cf0d19927466805c8f17c68ee7e93d1196d1162dd2279af497c21ec611a63f7a9de59953bbdfdb44c87d7bf55373c6533224a5d54e434c29428d1b",
+      "archive_complete_hash_verified": true,
+      "safe_tar_members": 12423,
+      "tar_regular_file_bytes": 319673544,
+      "retained_license_files_byte_equal_to_source": 19
+    },
+    "bison": {
+      "archive": "sources/bison-3.8.2.tar.xz",
+      "bytes": 2817324,
+      "sha256": "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2",
+      "sha512": "d4d23af6671406e97257892f90651b67f2ab95219831372be032190b7156c10a3435d457857e677445df8b2327aacccc15344acbbc3808a6f332a93cce23b444",
+      "archive_complete_hash_verified": true,
+      "safe_tar_members": 1368,
+      "tar_regular_file_bytes": 37719262,
+      "retained_license_files_byte_equal_to_source": 1
+    }
+  },
+  "llvm_mingw_license_files": 23,
+  "llvm_toolchain_binary_redistributed": false,
+  "llvm_toolchain_hash_verified_independently_here": false,
+  "payloads": [
+    {
+      "architecture": "x86_64",
+      "bytes": 3584,
+      "imports": [
+        "kernel32.dll"
+      ],
+      "sha256": "2d7b861d8903a9de3a07ee599a6f9fcbbec95f94e7ddf9e633758c5c724e5743",
+      "return_code": 0,
+      "stdout_token_verified": true,
+      "file_token_verified": true,
+      "launcher_report_verified": true,
+      "executed_on_ci": true,
+      "executed_by_reviewer": false,
+      "wow64_verified_on_ci": false
+    },
+    {
+      "architecture": "x86",
+      "bytes": 3584,
+      "imports": [
+        "kernel32.dll"
+      ],
+      "sha256": "1ac6564e375fc3effd025c0dd7a1ad5da73b14dd0dc8c3ee415f6505c051699a",
+      "return_code": 0,
+      "stdout_token_verified": true,
+      "file_token_verified": true,
+      "launcher_report_verified": true,
+      "executed_on_ci": true,
+      "executed_by_reviewer": false,
+      "wow64_verified_on_ci": true
+    }
+  ],
+  "runtime_archive": {
+    "bytes": 53592428,
+    "sha256": "0271fbeca2bc839bd681946a773df3190f7da5e3cf5db81afea44fc3bc2f463a",
+    "sha512": "4cc331f8c491c500b6112278f3d5e8c74276559c6b005ccf782f718e7d23f850db647e52cd6a04160add2553b539c56a5c88e298a2bbdc6f7700c21886feb004"
+  },
+  "runtime_tar_members": 3677,
+  "runtime_tar_regular_file_bytes": 452654083,
+  "runtime_tar_names_links_and_budgets_verified": true,
+  "runtime_license_files_byte_equal_to_package_notices": 42,
+  "runtime_actual_macho_loader": {
+    "format": "Mach-O 64-bit little-endian",
+    "architecture": "x86_64",
+    "file_type": "MH_EXECUTE",
+    "load_commands_checked": 17,
+    "bytes": 9432,
+    "sha256": "c447cfc317c9dfdd7319091d70e04b6d0b708baa1a4224f781f2ed3372178ca0",
+    "executed": false
+  },
+  "diagnostic_runtime": true,
+  "configured_for_ci_prefix": true,
+  "runtime_relocation_verified": false,
+  "historical_prefix_cleanup_completed": false,
+  "historical_prefix_stop_return_code": 1,
+  "wine_runtime_executed_on_ci": true,
+  "own_windows_pe_programs_tested_on_ci": 2,
+  "host_macos": "26.6.1",
+  "host_architecture": "x86_64",
+  "duration_seconds": 3245.644,
+  "native_samsung_target_tested": false,
+  "gpu_acceleration_tested": false,
+  "user_application_or_installer_tested": false,
+  "reviewer_executed_archive_contents": false,
+  "system_or_secure_boot_changed": false,
+  "deliverable_zip": "LunarBridge-Wine11-Diagnose-Paket.zip",
+  "deliverable_sha256": "7676de1881e3c813adc3bc1e762907a2d981ecf8a5b2897b778bd81086e682b6",
+  "deliverable_sha512": "ddaccc2e035b6e2e93ef3a9f0b55617a5b3e2bbcd20fee7c470e67f5512fc129f0488985aae28217e5921c83f79ef0d7b409db4a96ae4331b02aebd5bce72e3f",
+  "deliverable_bytes": 90189414,
+  "deliverable_byte_equal_to_ci_zip": false,
+  "deliverable_explicitly_supplemented": true,
+  "original_ci_zip_unchanged": true,
+  "all_original_member_bytes_preserved_and_rehashed": true,
+  "deliverable_added_members": [
+    "recipe/.github/workflows/wine-runtime.yml",
+    "SOURCE-SUPPLEMENT.json"
+  ],
+  "deliverable_zip_crc_verified_members": 111,
+  "all_six_recipe_files_byte_equal_to_pinned_git_in_deliverable": true,
+  "delivered_source_and_license_components_rehashed_after_repack": true,
+  "no_new_ci_build_or_runtime_execution": true
+}

@@ -157,8 +157,9 @@
     "bytes": 90189404,
     "github_reported_digest": "sha256:4d64ac424e15578b1c3f0c61b9dceffa5441e7d804691e0462b83673f75358c6",
     "digest_matches_github_upload_log": true,
-    "full_zip_sha256_independently_computed": false,
-    "retention_days": 7
+    "full_zip_sha256_independently_computed": true,
+    "retention_days": 7,
+    "full_zip_safe_names_budgets_and_crc_verified_members": 109
   },
   "runtime_package": {
     "bytes": 53592428,
@@ -167,7 +168,10 @@
     "file": "wine-11.0-intel-diagnostic.tar.xz",
     "relocation_verified": false,
     "sha256": "0271fbeca2bc839bd681946a773df3190f7da5e3cf5db81afea44fc3bc2f463a",
-    "sha256_origin": "computed on CI host; archive not independently rehashed here"
+    "sha256_origin": "Independently rehashed from the complete original CI ZIP.",
+    "sha256_independently_computed": true,
+    "actual_loader_sha256_independently_computed": true,
+    "tar_members_checked_read_only": 3677
   },
   "prefix_cleanup": {
     "historical_report_completed": false,
@@ -186,5 +190,37 @@
   "windows_host_executed_wine_or_pe": false,
   "boot_or_secure_boot_changed": false,
   "policy_changes": false,
-  "later_documentation_commits_are_separate": true
+  "later_documentation_commits_are_separate": true,
+  "complete_package_validation_file": "PACKAGE_VALIDATION.json",
+  "original_recipe_source_files_present": 5,
+  "all_six_recipe_source_files_present_in_original": false,
+  "documented_download_source_supplement": {
+    "schema": 1,
+    "purpose": "Explicit source supplement for the hidden workflow recipe omitted by the original CI upload.",
+    "original_ci_zip_sha256": "4d64ac424e15578b1c3f0c61b9dceffa5441e7d804691e0462b83673f75358c6",
+    "original_ci_zip_bytes": 90189404,
+    "source_repository_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility",
+    "source_commit": "3dcc431371543d80b69de3f0deacf979bb3b1ccd",
+    "source_path": ".github/workflows/wine-runtime.yml",
+    "source_git_url": "https://github.com/IT-EXPRESS-Bayern/LunarBridge-Windows-Compatibility/blob/3dcc431371543d80b69de3f0deacf979bb3b1ccd/.github/workflows/wine-runtime.yml",
+    "package_member_added": "recipe/.github/workflows/wine-runtime.yml",
+    "source_content_sha256": "7cab282c7dc431398b73bbdc6b27fa7ba4a623281bb76a115917d6f23698c86e",
+    "source_content_sha256_matches_original_build_report": true,
+    "original_zip_did_not_contain_this_recipe_member": true,
+    "original_member_uncompressed_bytes_preserved": true,
+    "zip_container_repacked": true,
+    "original_ci_zip_unchanged": true,
+    "new_ci_build_or_runtime_test_claimed": false
+  },
+  "verified_download_package": {
+    "file": "LunarBridge-Wine11-Diagnose-Paket.zip",
+    "bytes": 90189414,
+    "sha256": "7676de1881e3c813adc3bc1e762907a2d981ecf8a5b2897b778bd81086e682b6",
+    "explicitly_supplemented": true,
+    "all_original_member_contents_preserved": true,
+    "all_six_recipe_files_verified_against_exact_build_git_commit": true,
+    "source_and_license_components_rehashed_after_repack": true,
+    "package_is_unmodified_ci_zip": false
+  },
+  "corrected_recipe_upload_validation_file": "RECIPE_UPLOAD_VALIDATION.json"
 }
